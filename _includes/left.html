@@ -1,1 +1,12 @@
-<div class='left'></div>
+<div class='left'>
+  {% include spacer.html %}
+  <div>
+    {{ site.url }}
+    {{ site.description }}
+    <a>Projects</a><br />
+    Possible text.<br />
+    Possible text with <a>inline link</a>.<br />
+
+    by <a href='https://github.com/{{ site.author }}'>{{ site.author }}</a>
+  </div>
+</div>

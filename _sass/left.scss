@@ -1,4 +1,16 @@
 .left {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   background-color: #202020;
+  width: 25%;
+  height: 100%;
+  position: fixed;
+
+  display: flex;
+  flex-flow: column;
+  color: $grey;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
 }
