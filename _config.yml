@@ -4,4 +4,5 @@ description:
   Description of the static website.
 
 markdown: kramdown
-exclude: LICENSE
+exclude:
+  - LICENSE

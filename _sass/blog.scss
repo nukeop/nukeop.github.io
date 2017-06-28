@@ -1,0 +1,29 @@
+body,
+html {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-flow: row;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
