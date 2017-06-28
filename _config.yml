@@ -1,0 +1,7 @@
+title: Jekyll from scratch
+author: nukeop
+description:
+  Description of the static website.
+
+markdown: kramdown
+exclude: LICENSE
