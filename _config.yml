@@ -3,8 +3,6 @@ author: nukeop
 description:
   Description of the static website.
 
-url: nukeop.github.io
-
 markdown: kramdown
 exclude:
   - LICENSE

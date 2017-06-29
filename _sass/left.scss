@@ -1,9 +1,9 @@
 .left {
   flex: 0 0 auto;
-  background-color: #202020;
-  width: 25%;
+  background-color: $black;
+  background: url('images/padded.png');
+  width: 400px;
   height: 100%;
-  position: fixed;
 
   display: flex;
   flex-flow: column;
@@ -12,5 +12,19 @@
   a {
     color: $white;
     text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: $white;
+  }
+
+  .content {
+    margin: 24px;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .links {
+    text-align: center;
   }
 }
