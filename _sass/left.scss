@@ -1,8 +1,7 @@
 .left {
   flex: 0 0 auto;
   background-color: $black;
-  background: url('images/padded.png');
-  width: 400px;
+  width: 28rem;
   height: 100%;
 
   display: flex;
@@ -18,13 +17,33 @@
     color: $white;
   }
 
+  .title {
+    margin: 24px;
+    flex: 0 0 auto;
+    font-variant: small-caps;
+
+    h1 {
+      border-left: 10px solid $primaryColor;
+      padding: 0px 0px 0px 10px;
+    }
+  }
+
   .content {
     margin: 24px;
+    flex: 0 0 auto;
     display: flex;
     flex-flow: column;
+
+    hr {
+      width: 100%;
+      border: none;
+      border-bottom: 1px $grey solid;
+      margin: 24px 0px;
+    }
   }
 
   .links {
     text-align: center;
+    margin: 16px 0px;
   }
 }

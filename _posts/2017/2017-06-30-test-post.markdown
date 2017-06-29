@@ -1,0 +1,26 @@
+---
+layout: "post"
+title: "test post"
+date: "2017-06-30 01:42"
+---
+
+Placeholder post with some filler content.
+
+```python
+@staticmethod
+def import_plugins():
+    logger.info("Scanning plugins...")
+    files = os.listdir(os.path.join(os.path.dirname(__file__),
+                                    plugins.__name__))
+    files = [os.path.splitext(x)[0] for x in files if
+             os.path.splitext(x)[1] == ".py"
+             and "__init__" not in x]
+
+    for module in files:
+        logger.info("Detected plugin: %s", module)
+        try:
+            __import__("plugins.{}".format(module))
+        except Exception as e:
+            logger.error("Invalid plugin: %s", module)
+            logger.error(str(e))
+```

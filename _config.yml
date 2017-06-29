@@ -4,5 +4,9 @@ description:
   Description of the static website.
 
 markdown: kramdown
+paginate: 5
 exclude:
   - LICENSE
+
+plugins:
+  - jekyll-paginate
