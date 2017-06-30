@@ -1,49 +1,71 @@
 .left {
-  flex: 0 0 auto;
-  background-color: $black;
-  width: 28rem;
-  height: 100%;
-
   display: flex;
-  flex-flow: column;
+  width: 20rem;
+  height: 100%;
   color: $grey;
+  background-color: $backgroundColor;
+  flex: 0 0 auto;
+  flex-flow: column;
 
   a {
-    color: $white;
     text-decoration: none;
+    color: $white;
   }
 
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     color: $white;
   }
 
   .title {
-    margin: 24px;
-    flex: 0 0 auto;
+    margin: 12px;
     font-variant: small-caps;
+    flex: 0 0 auto;
 
     h1 {
+      padding: 0 0 0 10px;
       border-left: 10px solid $primaryColor;
-      padding: 0px 0px 0px 10px;
     }
   }
 
   .content {
+    display: flex;
     margin: 24px;
     flex: 0 0 auto;
-    display: flex;
     flex-flow: column;
+    align-items: center;
+
+    .links {
+      display: flex;
+      margin: 1rem 0;
+      flex-flow: row;
+      justify-content: center;
+
+      a {
+        margin: 0 0.75rem;
+      }
+    }
 
     hr {
       width: 100%;
+      margin: 1.5rem 0;
       border: none;
       border-bottom: 1px $grey solid;
-      margin: 24px 0px;
     }
-  }
 
-  .links {
-    text-align: center;
-    margin: 16px 0px;
+    img {
+      width: 10rem;
+      border-radius: 10rem;
+      flex: 1 1 auto;
+      margin: 1.5rem;
+    }
+
+    p {
+      width: 100%;
+      text-align: left;
+    }
   }
 }

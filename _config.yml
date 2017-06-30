@@ -1,10 +1,11 @@
-title: Jekyll from scratch
-author: nukeop
+title:       nukeop.github.io
+author:      nukeop
 description: Description of the static website.
 
-markdown: kramdown
+markdown:    kramdown
 highlighter: rouge
-paginate: 5
+paginate:    5
+
 exclude:
   - LICENSE
 
