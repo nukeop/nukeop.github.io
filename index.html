@@ -4,10 +4,12 @@ layout: home
 ---
 
 {% for post in paginator.posts %}
+<div class='post-preview'>
 <h1><a href='{{ post.url }}'>{{ post.title }}</a></h1>
-<span>{{ post.date }}</span>
+<span>{{ post.date | date: '%d %B %Y' }}</span>
 <div>
-  {{ post.content }}
+  {{ post.content | strip_html | truncatewords:50}}
+</div>
 </div>
 {% endfor %}
 

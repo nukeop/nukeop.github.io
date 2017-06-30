@@ -1,7 +1,6 @@
 title: Jekyll from scratch
 author: nukeop
-description:
-  Description of the static website.
+description: Description of the static website.
 
 markdown: kramdown
 highlighter: rouge
