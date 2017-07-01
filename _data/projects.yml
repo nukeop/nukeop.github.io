@@ -1,0 +1,34 @@
+  - name: Relay Bot 2.0
+    description: a steam chatbot
+    language: python
+    link: https://github.com/nukeop/RelayBot2.0/
+    thumbnail: http://bot.gumblert.tech/media/avatar.jpg
+
+  - name: nuclear
+    description: electron-based streaming music player
+    language: javascript
+    link: https://github.com/nukeop/nuclear
+    thumbnail: http://nuclear.gumblert.tech/screenshot.png
+
+  - name: smash
+    description: bash.org-style quote database
+    language: python (Flask)
+    link: https://github.com/nukeop/smash
+    thumbnail: https://camo.githubusercontent.com/8c7730413dd426ed95659029505e0f18998bd86e/687474703a2f2f692e696d6775722e636f6d2f726c797a3157612e706e67
+
+  - name: radium
+    description: chip-8 emulator
+    language: python
+    link: https://github.com/nukeop/radium
+    thumbnail: https://camo.githubusercontent.com/cf4076b22f499bf0e91f27fd1290cfc9b018f0d1/687474703a2f2f692e696d6775722e636f6d2f794539583473302e706e67
+
+  - name: boggler
+    description: selenium bot for boggle (wordplays.com)
+    language: python
+    link: https://github.com/nukeop/boggler
+    thumbnail: https://camo.githubusercontent.com/17a6fcc2e975219efaf7e945bdd2f7a9328fe326/687474703a2f2f692e696d6775722e636f6d2f50734b41317a572e706e67
+
+  - name: hide.py
+    description: steganographic program that hides data in pictures
+    language: python
+    link: https://github.com/nukeop/hide.py

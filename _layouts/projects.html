@@ -1,0 +1,36 @@
+---
+title: my projects
+layout: default
+---
+
+<div class='projects-page'>
+  <div class='projects-content'>
+    {{ content }}
+  </div>
+
+  <div class='projects'>
+    {% for project in site.data.projects %}
+
+    <div class='project'>
+      <div class='thumbnail'>
+        <img src='{{ project.thumbnail }}'>
+      </div>
+      <div class='project-infobox'>
+        <div class='name'>
+          <h3>{{ project.name }}</h3>
+        </div>
+        <div class='language'>
+          {{ project.language }}
+        </div>
+        <div class='desc'>
+          <p>
+            {{ project.description }}
+          </p>
+        </div>
+        <div class='link'><a href='{{ project.link }}'>Link</a></div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
