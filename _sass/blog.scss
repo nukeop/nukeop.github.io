@@ -5,6 +5,7 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: $white;
 }
 
 html {
@@ -14,7 +15,7 @@ html {
 body {
   display: flex;
   flex-flow: row;
-  background-color: $white;
+  background-color: rgba($backgroundColor, 0.05);
 }
 
 h1,
@@ -23,6 +24,16 @@ h3,
 h4,
 h5 {
   font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+  transition: 0.2s;
+
+  &:hover {
+    color: $blue;
+  }
 }
 
 .spacer {
