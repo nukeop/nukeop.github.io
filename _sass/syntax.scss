@@ -1,16 +1,18 @@
 .highlighter-rouge {
   padding: 12px;
-
   border-radius: 6px;
   background-color: $black;
-  box-shadow: 0px 0px 4px 0px $grey;
+  box-shadow: 0 0 4px 0 $grey;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
 }
-
 
 code {
   color: $white;
 
-  .nd, .nb {
+  .nb,
+  .nd {
     color: $pink;
   }
 

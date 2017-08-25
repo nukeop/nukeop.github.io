@@ -1,20 +1,29 @@
 .home {
   display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+  justify-content: center;
+  overflow: auto;
+}
+
+.posts {
+  display: flex;
   flex-flow: row wrap;
   flex: 1 1 auto;
-
-  margin: 1.5rem;
+  justify-content: center;
+  overflow: auto;
 }
 
 .post-preview {
   position: relative;
   display: flex;
   flex-flow: column;
-  width: 50%;
-  height: 20rem;
+  width: 15rem;
+  height: 18rem;
   flex: 0 0 auto;
   background: $white;
   padding: 2rem;
+  margin: 1rem;
   border-radius: 1rem;
 
   .thumb {
@@ -25,18 +34,26 @@
   }
 
   span {
-    flex: 1 1 auto;
     color: $grey;
     font-variant: small-caps;
   }
 
   h2 {
-    flex: 1 1 auto;
   }
 
   .preview-text {
-    flex: 1 1 auto;
+    flex: 1 0 auto;
     width: 100%;
     color: $grey;
   }
+
+}
+
+.pagination {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }

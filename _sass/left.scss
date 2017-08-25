@@ -58,8 +58,9 @@
 
     img {
       width: 10rem;
-      border-radius: 10rem;
-      flex: 1 1 auto;
+      height: 10rem;
+      border-radius: 50%;
+      flex: 0 0 auto;
       margin: 1.5rem;
       border: 2px solid $white;
     }
@@ -68,5 +69,9 @@
       width: 100%;
       text-align: left;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 }

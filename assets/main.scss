@@ -18,7 +18,7 @@ $black          : #202020;
 $white          : #FAFAFA;
 
 $primaryColor   : $yellow;
-$secondaryColor : lighten($primaryColor, 30%);
+$secondaryColor : lighten($primaryColor, 20%);
 $backgroundColor: $black;
 
 @import "blog";
@@ -27,3 +27,4 @@ $backgroundColor: $black;
 @import "post";
 @import "projects";
 @import "syntax";
+@import "topbar";

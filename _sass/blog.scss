@@ -16,6 +16,10 @@ body {
   display: flex;
   flex-flow: row;
   background-color: rgba($backgroundColor, 0.05);
+
+  @media screen and (max-width: 768px) {
+    flex-flow: column;
+  }
 }
 
 h1,
@@ -24,6 +28,8 @@ h3,
 h4,
 h5 {
   font-family: 'Montserrat', sans-serif;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 a {
