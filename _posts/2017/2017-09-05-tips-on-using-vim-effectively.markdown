@@ -2,6 +2,7 @@
 layout: "post"
 title: "Tips on using vim effectively"
 date: "2017-09-05 08:53"
+image: "https://s3.amazonaws.com/hackdesign/tools/app_images/000/000/051/icon_small/vim-logo-en.png"
 summary: "Rare tips on using the more obscure functions to increase productivity."
 ---
 
