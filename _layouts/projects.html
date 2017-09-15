@@ -13,11 +13,17 @@ layout: default
 
     <div class='project'>
       <div class='thumbnail'>
-        <img src='{{ project.thumbnail }}'>
+        <a href='{{ project.link }}'>
+          {% if project.thumbnail %}
+            <img src='{{ project.thumbnail }}'>
+          {% else %}
+            <img src='{{ site.data.blog.default_thumbnail }}'>
+          {% endif %}
+        </a>
       </div>
       <div class='project-infobox'>
         <div class='name'>
-          <h3>{{ project.name }}</h3>
+          <a href='{{ project.link }}'><h3>{{ project.name }}</h3></a>
         </div>
         <div class='language'>
           {{ project.language }}
@@ -27,7 +33,6 @@ layout: default
             {{ project.description }}
           </p>
         </div>
-        <div class='link'><a href='{{ project.link }}'>Link</a></div>
       </div>
 
     </div>

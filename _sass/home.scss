@@ -8,23 +8,32 @@
 
 .posts {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   flex: 1 1 auto;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: auto;
 }
 
 .post-preview {
   position: relative;
   display: flex;
-  flex-flow: column;
-  width: 15rem;
-  height: 18rem;
+  flex-flow: row;
+  height: auto;
   flex: 0 0 auto;
   background: $white;
-  padding: 2rem;
+  padding: 0.5rem;
   margin: 1rem;
   border-radius: 1rem;
+
+  .thumbnail-container {
+    flex: 0 0 auto;
+    margin: 0 0.5rem 0 0;
+  }
+
+  .post-details-container {
+    flex: 1 1 auto;
+    margin: 0 0 0 0.5rem;
+  }
 
   .thumb {
     width: 100%;
@@ -45,6 +54,11 @@
     flex: 1 0 auto;
     width: 100%;
     color: $grey;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-flow: column;
+    padding: 1rem;
   }
 
 }

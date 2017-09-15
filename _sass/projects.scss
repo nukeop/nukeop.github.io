@@ -50,6 +50,7 @@
           border-radius: 0.25rem;
 
           flex: 0 0 auto;
+          object-fit: cover;
         }
       }
 
@@ -75,6 +76,10 @@
             color: $blue;
           }
         }
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
       }
     }
   }
