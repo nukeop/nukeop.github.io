@@ -11,7 +11,7 @@ layout: default
   <div class='projects'>
     {% for project in site.data.projects %}
 
-    <div class='project'>
+    <div class='project' {% if project.color %}style='background: #{{ project.color }}'{% endif %}>
       <div class='thumbnail'>
         <a href='{{ project.link }}'>
           {% if project.thumbnail %}
@@ -21,7 +21,7 @@ layout: default
           {% endif %}
         </a>
       </div>
-      <div class='project-infobox'>
+      <div class='project-infobox' {% if project.secondaryColor %}style='background: #{{ project.secondaryColor }}'{% endif %}>
         <div class='name'>
           <a href='{{ project.link }}'><h3>{{ project.name }}</h3></a>
         </div>

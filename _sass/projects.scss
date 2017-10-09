@@ -17,39 +17,37 @@
   .projects {
     display: flex;
 
-    height: 100%;
     margin: 1rem;
 
     flex: 1 1 auto;
-    flex-flow: column;
-    justify-content: flex-start;
-    color: $grey;
+    flex-flow: row wrap;
+    justify-content: center;
+    color: $white;
 
     .project {
       display: flex;
 
       width: 24rem;
-      margin: 1.5rem 0;
+      margin: 1rem;
 
       border-radius: 0.25rem;
       background: $black;
 
-      flex-flow: row;
+      flex-flow: column;
       flex: 0 0 auto;
 
       .thumbnail {
         display: flex;
 
-        height: 100%;
-
         align-items: center;
         justify-content: center;
 
         img {
-          width: 8rem;
-          height: 8rem;
+          width: 20rem;
+          height: 15rem;
 
           border-radius: 0.25rem;
+          margin: 1rem;
 
           flex: 0 0 auto;
           object-fit: cover;
@@ -57,7 +55,9 @@
       }
 
       .project-infobox {
-        margin: 0 1rem;
+        margin: 0;
+        padding: 0.75rem 1.5rem;
+        flex: 1 1 auto;
 
         .name {
           h3 {
@@ -68,7 +68,8 @@
         .desc {}
 
         .language {
-          color: $grey;
+          color: $white;
+          font-variant: small-caps;
         }
 
         .link {
