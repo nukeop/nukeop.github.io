@@ -11,6 +11,7 @@
   .projects-content {
     flex: 0 0 auto;
     margin: 1rem;
+    color: $white;
   }
 
   .projects {
@@ -22,6 +23,7 @@
     flex: 1 1 auto;
     flex-flow: column;
     justify-content: flex-start;
+    color: $grey;
 
     .project {
       display: flex;
@@ -30,7 +32,7 @@
       margin: 1.5rem 0;
 
       border-radius: 0.25rem;
-      background: $white;
+      background: $black;
 
       flex-flow: row;
       flex: 0 0 auto;

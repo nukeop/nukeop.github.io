@@ -5,7 +5,7 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: $white;
+  background-color: $darkgray;
 }
 
 html {
@@ -15,7 +15,7 @@ html {
 body {
   display: flex;
   flex-flow: row;
-  background-color: rgba($backgroundColor, 0.05);
+  background-color: $darkgray;
 
   @media screen and (max-width: 768px) {
     flex-flow: column;
@@ -33,12 +33,12 @@ h5 {
 }
 
 a {
-  color: $black;
+  color: $white;
   text-decoration: none;
   transition: 0.2s;
 
   &:hover {
-    color: $blue;
+    color: $primaryColor;
   }
 }
 

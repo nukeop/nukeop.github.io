@@ -24,6 +24,11 @@
     margin: 1rem 0 0 0;
     padding: 0 1rem 1rem 1rem;
     overflow: auto;
-    background-color: $white;
+    background-color: $black;
+    color: $white;
+
+    a {
+      color: $primaryColor;
+    }
   }
 }
