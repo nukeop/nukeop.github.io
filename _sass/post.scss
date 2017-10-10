@@ -5,7 +5,12 @@
   margin: 1.5rem;
   overflow: auto;
 
+  h1, h2, h3, h4 {
+    margin-top: 2.5rem;
+  }
+
   .post-title {
+    max-width: 60rem;
     flex: 0 0 auto;
     background-color: $primaryColor;
     padding: 1.5rem;
@@ -13,6 +18,7 @@
   }
 
   .post-date {
+    max-width: 60rem;
     flex: 0 0 auto;
     width: 6rem;
     text-align: center;
@@ -21,9 +27,9 @@
   }
 
   .post-content {
+    max-width: 60rem;
     margin: 1rem 0 0 0;
     padding: 0 1rem 1rem 1rem;
-    overflow: auto;
     background-color: $black;
     color: $white;
 
