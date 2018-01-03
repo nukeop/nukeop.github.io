@@ -1,10 +1,6 @@
 title:       nukeop.github.io
 author:      nukeop
-description: A technology-oriented blog.
-
-markdown:    kramdown
-highlighter: rouge
-paginate:    5
+description: A portfolio of my most interesting projects.
 
 exclude:
   - LICENSE

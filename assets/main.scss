@@ -14,7 +14,7 @@ $purple         : #B413EC;
 $pink           : #FF1493;
 $brown          : #A52A2A;
 $grey           : #A0A0A0;
-$darkgray		: #272b30;
+$darkgray	: #272b30;
 $black          : #212529;
 $white          : #FAFAFA;
 
@@ -22,10 +22,4 @@ $primaryColor   : $yellow;
 $secondaryColor : lighten($primaryColor, 20%);
 $backgroundColor: $black;
 
-@import "blog";
-@import "home";
-@import "left";
-@import "post";
 @import "projects";
-@import "syntax";
-@import "topbar";
