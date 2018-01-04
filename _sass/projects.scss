@@ -140,7 +140,17 @@ a {
 	}
 
 	.language {
-	  color: yellow;
+	  display: flex;;
+	  justify-content: flex-end;
+	  width: 100%;
+	  
+	  p {
+	    line-height: 1rem;
+	    background-color: rgba($black, 0.5);
+	    padding: 0.5rem 0.75rem;
+	    margin: 0.5rem 0;
+	    border-radius: 2rem;
+	  }
 	}
       }
     }
