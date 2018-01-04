@@ -5,38 +5,47 @@
 
   <body>
     <div class='projects-page'>
-      <div class='projects-content'>
-	{{ content }}
-      </div>
 
       <div class='projects'>
 	{% for project in site.data.projects %}
 
-	<div class='project' {% if project.color %}style='background: #{{ project.color }}'{% endif %}>
-	  <div class='thumbnail'>
-            <a href='{{ project.link }}'>
-              {% if project.thumbnail %}
-              <img src='{{ project.thumbnail }}'>
-              {% else %}
-              <img src='{{ site.data.blog.default_thumbnail }}'>
-              {% endif %}
-            </a>
-	  </div>
-	  <div class='project-infobox' {% if project.secondaryColor %}style='background: #{{ project.secondaryColor }}'{% endif %}>
-            <div class='name'>
-              <a href='{{ project.link }}'><h3>{{ project.name }}</h3></a>
-            </div>
-            <div class='language'>
-              {{ project.language }}
-            </div>
-            <div class='desc'>
-              <p>
-		{{ project.description }}
-              </p>
-            </div>
-	  </div>
+	<a href='{{ project.link }}'>
 
-	</div>
+
+	  <div class='project' >
+
+	    <div class='overlay-container'>
+	      <div class='overlay' style="z-index: 1;"></div>
+	      <div class='overlay' style="background-image: url({{ project.thumbnail }});"></div>
+	    </div>
+	      <div class="project_info">
+		<div class='thumbnail'>
+		  
+		  {% if project.thumbnail %}
+		  <img src='{{ project.thumbnail }}'>
+		  {% else %}
+		  <img src='{{ site.data.defaults.default_thumbnail }}'>
+		  {% endif %}
+
+		</div>
+
+		<div class='text'>
+		  <div class='name'>
+		    <h3>{{ project.name }}</h3>
+		  </div>
+		  <div class='desc'>
+		    <p>
+		      {{ project.description }}
+		    </p>
+		  </div>
+		  <div class='language'>
+		    {{ project.language }}
+		  </div>
+		</div>
+	      </div>
+	  </div>
+ 
+	</a>
 	{% endfor %}
       </div>
     </div>

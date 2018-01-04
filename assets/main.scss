@@ -1,7 +1,6 @@
 ---
 ---
 
-
 $red            : #B03060;
 $orange         : #FE9A76;
 $yellow         : #FFD700;
@@ -17,9 +16,5 @@ $grey           : #A0A0A0;
 $darkgray	: #272b30;
 $black          : #212529;
 $white          : #FAFAFA;
-
-$primaryColor   : $yellow;
-$secondaryColor : lighten($primaryColor, 20%);
-$backgroundColor: $black;
 
 @import "projects";

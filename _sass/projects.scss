@@ -1,3 +1,28 @@
+body,
+html {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $darkgray;
+}
+
+html {
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-flow: row;
+  background-color: $darkgray;
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+}
+
 .projects-page {
   $lgrey: rgba($grey, 0.3);
   display: flex;
@@ -8,27 +33,27 @@
 
   flex-flow: column;
 
-  .projects-content {
-    flex: 0 0 auto;
-    margin: 1rem;
-    color: $white;
-  }
-
   .projects {
     display: flex;
-
-    margin: 1rem;
-
     flex: 1 1 auto;
     flex-flow: row wrap;
     justify-content: center;
+    align-items: center;
     color: $white;
 
+    a {
+      display: flex;
+      width: 25%;
+      height: 100%;
+      margin: 1rem;
+    }
+
     .project {
+      position: relative;
       display: flex;
 
-      width: 24rem;
-      margin: 1rem;
+      width: 100%;
+      height: 22rem;
 
       border-radius: 0.25rem;
       background: $black;
@@ -36,53 +61,73 @@
       flex-flow: column;
       flex: 0 0 auto;
 
+      .overlay-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 0.25rem;
+      }
+      
+      .overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba($black, 0.4);
+	filter: blur(20px);
+
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+      }
+
+      .project_info {
+	display: flex;
+	flex-flow: column;
+	justify-content: flex-start;
+	align-items: center;
+	
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+      }
+
       .thumbnail {
         display: flex;
+	height: 50%;
+	width: 100%;
 
-        align-items: center;
+	flex: 1 1 auto;
+	
+	align-items: center;
         justify-content: center;
 
         img {
-          width: 20rem;
-          height: 15rem;
+	  width: 10rem;
+          height: 10rem;
 
           border-radius: 0.25rem;
-          margin: 1rem;
 
           flex: 0 0 auto;
           object-fit: cover;
+
+	  box-shadow: 0 16px 24px 2px rgba($black,0.24), 0 6px 30px 5px rgba($black,0.22), 0 8px 10px -5px rgba($black,0.4);
         }
       }
 
-      .project-infobox {
-        margin: 0;
-        padding: 0.75rem 1.5rem;
-        flex: 1 1 auto;
+      .text {
+	display: flex;
+	flex-flow: column;
+	width: 100%;
+	padding: 0 1rem 1rem;
+	box-sizing: border-box;
+	justify-content: center;
 
-        .name {
-          h3 {
-            margin: 0.5rem 0 0;
-          }
-        }
-
-        .desc {}
-
-        .language {
-          color: $white;
-          font-variant: small-caps;
-        }
-
-        .link {
-          a {
-            text-decoration: none;
-
-            color: $blue;
-          }
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        width: 100%;
+	h3,
+	p {
+	  margin: 0;
+	}
       }
     }
   }
