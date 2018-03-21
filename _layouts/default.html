@@ -4,13 +4,15 @@
   {% include head.html %}
 
   <body>
+    <div class="header">
+      <img src="{{ site.data.defaults.logo }}" alt="logo">
+    </div>
     <div class='projects-page'>
 
-      <div class='projects'>
+    <div class='projects'>
 	{% for project in site.data.projects %}
 
 	<a href='{{ project.link }}'>
-
 
 	  <div class='project' >
 
@@ -20,7 +22,7 @@
 	    </div>
 	      <div class="project_info">
 		<div class='thumbnail'>
-		  
+
 		  {% if project.thumbnail %}
 		  <img src='{{ project.thumbnail }}'>
 		  {% else %}
@@ -44,7 +46,7 @@
 		</div>
 	      </div>
 	  </div>
- 
+
 	</a>
 	{% endfor %}
       </div>
