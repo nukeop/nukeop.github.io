@@ -1,3 +1,9 @@
+- name: nuclear
+  description: electron-based streaming music player
+  language: javascript
+  link: https://github.com/nukeop/nuclear
+  thumbnail: http://nuclear.gumblert.tech/screenshot.png
+
 - name: Icarus
   description: a Discord chatbot
   language: python
@@ -10,18 +16,12 @@
   link: https://github.com/nukeop/RelayBot2.0/
   thumbnail: http://bot.gumblert.tech/media/avatar.jpg
 
-- name: nuclear
-  description: electron-based streaming music player
+- name: react-ui-cards
+  description: Card components for React
   language: javascript
-  link: https://github.com/nukeop/nuclear
-  thumbnail: http://nuclear.gumblert.tech/screenshot.png
+  link: https://github.com/nukeop/react-ui-cards
+  thumbnail: https://i.imgur.com/D5Uu3md.png
 
-- name: radium
-  description: chip-8 emulator
-  language: python
-  link: https://github.com/nukeop/radium
-  thumbnail: https://camo.githubusercontent.com/cf4076b22f499bf0e91f27fd1290cfc9b018f0d1/687474703a2f2f692e696d6775722e636f6d2f794539583473302e706e67
-  
 - name: boggler
   description: selenium bot for boggle (wordplays.com)
   language: python
@@ -39,12 +39,30 @@
   language: javascript
   link: https://github.com/nukeop/tinycrawl
   thumbnail: https://i.imgur.com/2qAI6v9.png
-  
+
+- name: tinycrawl-backend
+  description: Backend and RESTful API for tinycrawl
+  language: javascript (Node.js)
+  link: https://github.com/nukeop/tinycrawl-backend
+  thumbnail: https://i.imgur.com/X2XTXLc.png
+
+- name: nukeop.github.io
+  description: this website
+  language: html/css
+  link: https://github.com/nukeop/nukeop.github.io
+  thumbnail: https://nukeop.github.io/assets/images/logo_main.svg
+
 - name: smash
   description: bash.org-style quote database
   language: python (Flask)
   link: https://github.com/nukeop/smash
   thumbnail: https://camo.githubusercontent.com/8c7730413dd426ed95659029505e0f18998bd86e/687474703a2f2f692e696d6775722e636f6d2f726c797a3157612e706e67
+
+- name: radium
+  description: chip-8 emulator
+  language: python
+  link: https://github.com/nukeop/radium
+  thumbnail: https://camo.githubusercontent.com/cf4076b22f499bf0e91f27fd1290cfc9b018f0d1/687474703a2f2f692e696d6775722e636f6d2f794539583473302e706e67
 
 - name: dotfiles
   description: config files for emacs and other tools
