@@ -2,7 +2,7 @@
   description: electron-based streaming music player
   language: javascript
   link: https://github.com/nukeop/nuclear
-  thumbnail: http://nuclear.gumblert.tech/screenshot.png
+  thumbnail: https://nuclear.gumblert.tech/assets/images/screenshot.png
 
 - name: Icarus
   description: a Discord chatbot
