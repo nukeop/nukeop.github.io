@@ -15,6 +15,7 @@ html {
 body {
   display: flex;
   flex-flow: column;
+  align-items: center;
   background-color: $darkgray;
 }
 
@@ -23,10 +24,41 @@ a {
   text-decoration: none;
 }
 
+hr {
+  width: 80%;
+  max-width: 800px;
+  border: 1px solid rgba($grey, 0.3);
+  border-bottom: none;
+}
+
 .header {
   display: block;
   text-align: center;
   padding: 2rem;
+}
+
+.contact {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  color: rgba($white, 0.89);
+
+  span {
+    white-space: nowrap;
+    margin: 0.5em;
+  }
+  
+  .bullet {
+    display: flex;
+    align-items: baseline;
+    
+    user-select: none;
+    &:before {
+      content: '⚫';
+    }
+  }
 }
 
 .projects-page {

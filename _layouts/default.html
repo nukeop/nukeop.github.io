@@ -7,48 +7,57 @@
     <div class="header">
       <img src="{{ site.data.defaults.logo }}" alt="logo">
     </div>
+
+    <hr />
+    <div class="contact">
+      <span>Github: <a href="https://github.com/nukeop">https://github.com/nukeop</a></span>
+      <span class="bullet"></span>
+      <span>Riot.im: @alsw:matrix.org </span>
+    </div>
+    <hr />
+    
     <div class='projects-page'>
 
-    <div class='projects'>
-	{% for project in site.data.projects %}
+      <div class='projects'>
+	      {% for project in site.data.projects %}
 
-	<a href='{{ project.link }}'>
+	      <a href='{{ project.link }}'>
 
-	  <div class='project' >
+	        <div class='project' >
 
-	    <div class='overlay-container'>
-	      <div class='overlay' style="z-index: 1;"></div>
-	      <div class='overlay' style="background-image: url({{ project.thumbnail }});"></div>
-	    </div>
-	      <div class="project_info">
-		<div class='thumbnail'>
+	          <div class='overlay-container'>
+	            <div class='overlay' style="z-index: 1;"></div>
+	            <div class='overlay' style="background-image: url({{ project.thumbnail }});"></div>
+	          </div>
+	          <div class="project_info">
+		          <div class='thumbnail'>
 
-		  {% if project.thumbnail %}
-		  <img src='{{ project.thumbnail }}'>
-		  {% else %}
-		  <img src='{{ site.data.defaults.default_thumbnail }}'>
-		  {% endif %}
+		            {% if project.thumbnail %}
+		            <img src='{{ project.thumbnail }}'>
+		            {% else %}
+		            <img src='{{ site.data.defaults.default_thumbnail }}'>
+		            {% endif %}
 
-		</div>
+		          </div>
 
-		<div class='text'>
-		  <div class='name'>
-		    <h3>{{ project.name }}</h3>
-		  </div>
-		  <div class='desc'>
-		    <p>
-		      {{ project.description }}
-		    </p>
-		  </div>
-		  <div class='language'>
-		    <p>{{ project.language }}</p>
-		  </div>
-		</div>
-	      </div>
-	  </div>
+		          <div class='text'>
+		            <div class='name'>
+		              <h3>{{ project.name }}</h3>
+		            </div>
+		            <div class='desc'>
+		              <p>
+		                {{ project.description }}
+		              </p>
+		            </div>
+		            <div class='language'>
+		              <p>{{ project.language }}</p>
+		            </div>
+		          </div>
+	          </div>
+	        </div>
 
-	</a>
-	{% endfor %}
+	      </a>
+	      {% endfor %}
       </div>
     </div>
   </body>

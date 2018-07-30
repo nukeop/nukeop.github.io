@@ -22,6 +22,24 @@
   link: https://github.com/nukeop/react-ui-cards
   thumbnail: https://i.imgur.com/D5Uu3md.png
 
+- name: react-oxygen-ui-kit
+  description: UI Kit for React
+  language: javascript
+  link: https://github.com/nukeop/react-oxygen-ui-kit
+  thumbnail: http://i.imgur.com/iG4sxR5.png
+
+- name: mr-cool-nes
+  description: NES emulator (in progress)
+  language: Rust
+  link: https://github.com/nukeop/mr-cool-nes
+  thumbnail: https://i.imgur.com/lcVH5U8.jpg
+
+- name: pi-dashboard
+  description: Dashboard for Raspberry Pi on a tiny screen
+  language: javascript (Node.js)
+  link: https://github.com/nukeop/pi-dashboard
+  thumbnail: https://i.imgur.com/KhSq0tD.jpg
+  
 - name: boggler
   description: selenium bot for boggle (wordplays.com)
   language: python
