@@ -4,6 +4,12 @@
   link: https://github.com/nukeop/nuclear
   thumbnail: https://nuclear.gumblert.tech/assets/images/screenshot.png
 
+- name: zeus
+  description: custom virtual machine for a simple electronic game made from scratch
+  language: rust/javascript
+  link: https://github.com/nukeop/zeus
+  thumbnail: https://i.imgur.com/YalNITj.png
+
 - name: Icarus
   description: a Discord chatbot
   language: python
@@ -34,12 +40,18 @@
   link: https://github.com/nukeop/mr-cool-nes
   thumbnail: https://i.imgur.com/lcVH5U8.jpg
 
+- name: bewb
+  description: modular engine for interacting with websites from cli (in development)
+  language: javascript
+  link: https://github.com/nukeop/bewb
+  thumbnail: https://i.imgur.com/9nX59V1.png
+
 - name: pi-dashboard
   description: Dashboard for Raspberry Pi on a tiny screen
   language: javascript (Node.js)
   link: https://github.com/nukeop/pi-dashboard
   thumbnail: https://i.imgur.com/KhSq0tD.jpg
-  
+
 - name: boggler
   description: selenium bot for boggle (wordplays.com)
   language: python
