@@ -2,7 +2,7 @@
   description: electron-based streaming music player
   language: javascript
   link: https://github.com/nukeop/nuclear
-  thumbnail: https://nuclear.gumblert.tech/assets/images/screenshot.png
+  thumbnail: https://nuclear.js.org/assets/images/screenshot.png
 
 - name: zeus
   description: custom virtual machine for a simple electronic game made from scratch
