@@ -40,12 +40,6 @@
   link: https://github.com/nukeop/mr-cool-nes
   thumbnail: https://i.imgur.com/lcVH5U8.jpg
 
-- name: bewb
-  description: modular engine for interacting with websites from cli (in development)
-  language: javascript
-  link: https://github.com/nukeop/bewb
-  thumbnail: https://i.imgur.com/9nX59V1.png
-
 - name: pi-dashboard
   description: Dashboard for Raspberry Pi on a tiny screen
   language: javascript (Node.js)
@@ -64,14 +58,8 @@
   link: https://github.com/nukeop/hide.py
   thumbnail: https://i.imgur.com/eFUlmka.png
 
-- name: tinycrawl
-  description: Phaser game based on an idea from squidi.net (in progress)
-  language: javascript
-  link: https://github.com/nukeop/tinycrawl
-  thumbnail: https://i.imgur.com/2qAI6v9.png
-
 - name: tinycrawl-backend
-  description: Backend and RESTful API for tinycrawl
+  description: Backend and RESTful API for a simple RPG game
   language: javascript (Node.js)
   link: https://github.com/nukeop/tinycrawl-backend
   thumbnail: https://i.imgur.com/X2XTXLc.png
