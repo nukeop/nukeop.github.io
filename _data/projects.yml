@@ -1,8 +1,14 @@
 - name: nuclear
-  description: electron-based streaming music player
-  language: javascript
+  description: Electron-based streaming music player
+  language: typescript
   link: https://github.com/nukeop/nuclear
   thumbnail: https://nuclear.js.org/assets/images/screenshot.png
+
+- name: react-poll-widget
+  description: Flexible poll widget for React
+  language: typescript
+  link: https://github.com/nukeop/react-poll-widget
+  thumbnail: https://raw.githubusercontent.com/nukeop/react-poll-widget/master/docs/screenshots/3.png
 
 - name: zeus
   description: custom virtual machine for a simple electronic game made from scratch
@@ -15,12 +21,6 @@
   language: python
   link: https://github.com/nukeop/Icarus
   thumbnail: https://i.imgur.com/gsYCRay.jpg
-
-- name: Relay Bot 2.0
-  description: a Steam chatbot
-  language: python
-  link: https://github.com/nukeop/RelayBot2.0/
-  thumbnail: http://bot.gumblert.tech/media/avatar.jpg
 
 - name: react-ui-cards
   description: Card components for React
@@ -45,6 +45,12 @@
   language: javascript (Node.js)
   link: https://github.com/nukeop/pi-dashboard
   thumbnail: https://i.imgur.com/KhSq0tD.jpg
+
+- name: Relay Bot 2.0
+  description: a Steam chatbot
+  language: python
+  link: https://github.com/nukeop/RelayBot2.0/
+  thumbnail: http://bot.gumblert.tech/media/avatar.jpg
 
 - name: boggler
   description: selenium bot for boggle (wordplays.com)
