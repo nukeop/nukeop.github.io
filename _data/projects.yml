@@ -1,36 +1,36 @@
 - name: nuclear
   description: Electron-based streaming music player
-  language: typescript
+  language: Typescript
   link: https://github.com/nukeop/nuclear
   thumbnail: https://nuclear.js.org/assets/images/screenshot.png
 
 - name: react-poll-widget
   description: Flexible poll widget for React
-  language: typescript
+  language: Typescript
   link: https://github.com/nukeop/react-poll-widget
   thumbnail: https://raw.githubusercontent.com/nukeop/react-poll-widget/master/docs/screenshots/3.png
 
 - name: zeus
   description: custom virtual machine for a simple electronic game made from scratch
-  language: rust/javascript
+  language: Rust/Javascript
   link: https://github.com/nukeop/zeus
   thumbnail: https://i.imgur.com/YalNITj.png
 
 - name: Icarus
   description: a Discord chatbot
-  language: python
+  language: Python
   link: https://github.com/nukeop/Icarus
   thumbnail: https://i.imgur.com/gsYCRay.jpg
 
 - name: react-ui-cards
   description: Card components for React
-  language: javascript
+  language: Javascript
   link: https://github.com/nukeop/react-ui-cards
   thumbnail: https://i.imgur.com/D5Uu3md.png
 
 - name: react-oxygen-ui-kit
   description: UI Kit for React
-  language: javascript
+  language: Javascript
   link: https://github.com/nukeop/react-oxygen-ui-kit
   thumbnail: http://i.imgur.com/iG4sxR5.png
 
@@ -42,54 +42,54 @@
 
 - name: pi-dashboard
   description: Dashboard for Raspberry Pi on a tiny screen
-  language: javascript (Node.js)
+  language: Javascript (Node)
   link: https://github.com/nukeop/pi-dashboard
   thumbnail: https://i.imgur.com/KhSq0tD.jpg
 
 - name: Relay Bot 2.0
   description: a Steam chatbot
-  language: python
+  language: Python
   link: https://github.com/nukeop/RelayBot2.0/
   thumbnail: http://bot.gumblert.tech/media/avatar.jpg
 
 - name: boggler
   description: selenium bot for boggle (wordplays.com)
-  language: python
+  language: Python
   link: https://github.com/nukeop/boggler
   thumbnail: https://camo.githubusercontent.com/17a6fcc2e975219efaf7e945bdd2f7a9328fe326/687474703a2f2f692e696d6775722e636f6d2f50734b41317a572e706e67
 
 - name: hide.py
   description: steganographic program that hides data in pictures
-  language: python
+  language: Python
   link: https://github.com/nukeop/hide.py
   thumbnail: https://i.imgur.com/eFUlmka.png
 
 - name: tinycrawl-backend
   description: Backend and RESTful API for a simple RPG game
-  language: javascript (Node.js)
+  language: Javascript (Node)
   link: https://github.com/nukeop/tinycrawl-backend
   thumbnail: https://i.imgur.com/X2XTXLc.png
 
 - name: nukeop.github.io
   description: this website
-  language: html/css
+  language: HTML/CSS (Jekyll)
   link: https://github.com/nukeop/nukeop.github.io
   thumbnail: https://nukeop.github.io/assets/images/logo_main.svg
 
 - name: smash
   description: bash.org-style quote database
-  language: python (Flask)
+  language: Python (Flask)
   link: https://github.com/nukeop/smash
   thumbnail: https://camo.githubusercontent.com/8c7730413dd426ed95659029505e0f18998bd86e/687474703a2f2f692e696d6775722e636f6d2f726c797a3157612e706e67
 
 - name: radium
   description: chip-8 emulator
-  language: python
+  language: Python
   link: https://github.com/nukeop/radium
   thumbnail: https://camo.githubusercontent.com/cf4076b22f499bf0e91f27fd1290cfc9b018f0d1/687474703a2f2f692e696d6775722e636f6d2f794539583473302e706e67
 
 - name: dotfiles
   description: config files for emacs and other tools
-  language: txt
+  language: TXT
   link: https://github.com/nukeop/dotfiles
   thumbnail: https://i.imgur.com/8jOa2ak.png
