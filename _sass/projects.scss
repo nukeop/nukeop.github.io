@@ -3,6 +3,7 @@
   flex-flow: column;
   flex: 1 1 auto;
   max-height: calc(100% - 114px);
+  z-index: 1;
 
   .window-body {
     flex: 1 1 auto;

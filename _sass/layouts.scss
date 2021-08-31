@@ -10,6 +10,7 @@
 
 .icons {
   position: absolute;
+  z-index: 1;
 }
 
 .desktop-windows {
@@ -17,7 +18,6 @@
   flex-flow: column;
   height: 100%;
   flex: 1 1 auto;
-  z-index: 1;
 
   .window-body {
     cursor: text;
