@@ -1,0 +1,17 @@
+<div class="projects window">
+  <div class="title-bar">
+    <div class="title-bar-text">
+      My projects
+    </div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    {% for project in site.data.projects %}
+      {% include project.html project=project %}
+    {% endfor %}
+  </div>
+</div>

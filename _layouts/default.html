@@ -1,65 +1,40 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: " en " }}">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
-    <div class="header">
-      <img src="{{ site.data.defaults.logo }}" alt="logo">
-    </div>
+<body>
+	<div class="desktop">
+		<img class="bonzi" src="https://i.imgur.com/k80QmAQ.gif" />
+		<div class="column icons">
+			{%
+			include icon.html
+			to="https://nukeop.github.io"
+			icon="https://win98icons.alexmeub.com/icons/png/computer-5.png"
+			title="nukeop.github.io"
+			%}
+			{%
+			include icon.html
+			to="https://github.com/nukeop"
+			icon="https://i.imgur.com/wo8SQ8Q.png"
+			title="Github"
+			%}
+		</div>
+		<div class="column desktop-windows">
+			{% include contact-window.html %}
+			{% include projects-window.html %}
+		</div>
+	</div>
 
-    <hr />
-    <div class="contact">
-      <span>Github: <a href="https://github.com/nukeop">https://github.com/nukeop</a></span>
-      <span class="bullet"></span>
-      <span>Matrix.org: @alsw:gumblert.tech </span>
-    </div>
-    <hr />
-    
-    <div class='projects-page'>
+	<div class="balloon">
+		<span class="balloon-header">
+			<img src="https://win98icons.alexmeub.com/icons/png/msg_information-2.png" />
+			This site is best viewed in Internet Explorer 6.
+		</span>
+	</div>
 
-      <div class='projects'>
-	      {% for project in site.data.projects %}
+	{% include taskbar.html %}
 
-	      <a href='{{ project.link }}'>
-
-	        <div class='project' >
-
-	          <div class='overlay-container'>
-	            <div class='overlay' style="z-index: 1;"></div>
-	            <div class='overlay' style="background-image: url({{ project.thumbnail }});"></div>
-	          </div>
-	          <div class="project_info">
-		          <div class='thumbnail'>
-
-		            {% if project.thumbnail %}
-		            <img src='{{ project.thumbnail }}'>
-		            {% else %}
-		            <img src='{{ site.data.defaults.default_thumbnail }}'>
-		            {% endif %}
-
-		          </div>
-
-		          <div class='text'>
-		            <div class='name'>
-		              <h3>{{ project.name }}</h3>
-		            </div>
-		            <div class='desc'>
-		              <p>
-		                {{ project.description }}
-		              </p>
-		            </div>
-		            <div class='language'>
-		              <p>{{ project.language }}</p>
-		            </div>
-		          </div>
-	          </div>
-	        </div>
-
-	      </a>
-	      {% endfor %}
-      </div>
-    </div>
-  </body>
+</body>
 
 </html>

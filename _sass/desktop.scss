@@ -1,0 +1,147 @@
+body,
+html {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $darkgray;
+  background-image: url("https://i.imgur.com/MdDfCqx.png");
+}
+
+html {
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: $darkgray;
+  cursor: url("https://i.imgur.com/AdJyWqn.png") 4 0, auto;
+
+  &::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 9999999;
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    background-image: radial-gradient(transparent 0px, transparent 60%, rgba(0, 0, 0, 0.098) 100%),
+      repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 0, 0, 0.227) 3px);
+    background-size: 100% 100%, 100% 6px;
+  }
+}
+
+.desktop {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  padding: 16px 16px 46px 16px;
+}
+
+.well {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px;
+  box-shadow: inset -1px -1px $white, inset 1px 1px $darkgray;
+}
+
+.vertical-separator {
+  width: 2px;
+  height: 100%;
+  box-shadow: inset 1px 0 $darkgray, inset -1px 0 $white;
+  margin: 0 4px;
+  border: 0;
+}
+
+.icon {
+  display: block;
+  background: 0;
+  border: 0;
+  box-shadow: none;
+  cursor: url("https://i.imgur.com/1DiDwom.png") 4 0, auto;
+  color: $white;
+  outline: none !important;
+
+  font-family: "Pixelated MS Sans Serif", Arial;
+  font-size: 11px;
+  text-align: center;
+
+  &:focus,
+  &:active {
+    box-shadow: none !important;
+    padding: 0 !important;
+
+    div {
+      background: $blue;
+      outline: 1px dashed $black;
+    }
+  }
+
+  div {
+    box-sizing: border-box;
+    padding: 2px 4px;
+    border: 1px solid transparent;
+  }
+}
+
+.bonzi {
+  position: absolute;
+  z-index: 2;
+  width: 90px;
+  bottom: 20px;
+}
+
+.balloon {
+  position: absolute;
+  bottom: 40px;
+  right: 125px;
+  z-index: 2;
+
+  display: flex;
+  flex-flow: column;
+
+  padding: 8px;
+  border-radius: 8px;
+  background: $balloonbg;
+  border: 1px solid $black;
+
+  .balloon-header {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    font-weight: bold;
+
+    & > *:first-child {
+      margin-right: 8px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    right: 10px;
+    bottom: -12px;
+
+    border-left: 12px solid transparent;
+    border-top: 12px solid $balloonbg;
+
+    box-shadow: 1px 0px 0 0 $black;
+  }
+}

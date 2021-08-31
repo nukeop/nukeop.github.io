@@ -1,0 +1,25 @@
+.column {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  &>*:not(:first-child) {
+    margin-top: 24px;
+  }
+}
+
+.icons {
+  position: absolute;
+}
+
+.desktop-windows {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  flex: 1 1 auto;
+  z-index: 1;
+
+  .window-body {
+    cursor: text;
+  }
+}
