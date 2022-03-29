@@ -16,11 +16,29 @@
   link: https://github.com/nukeop/zeus
   thumbnail: https://i.imgur.com/YalNITj.png
 
-- name: Icarus
+- name: Morpheus
   description: a Discord chatbot
-  language: Python
-  link: https://github.com/nukeop/Icarus
-  thumbnail: https://i.imgur.com/gsYCRay.jpg
+  language: Typescript
+  link: https://github.com/nukeop/morpheus
+  thumbnail: https://i.imgur.com/8upCrg2.png
+  
+- name: Nuclear Web Services
+  description: Optional backend services for Nuclear - self-hostable
+  language: Typescript - Express
+  link: https://github.com/NuclearPlayer/nuclear-web-services
+  thumbnail: https://i.imgur.com/Twdr4Ji.png
+  
+- name: Discord Analytics
+  description: Discord bot for collecting stats and insights
+  language: Typescript
+  link: https://github.com/nukeop/discord-analytics
+  thumbnail: https://i.imgur.com/MEbZv97.png
+
+- name: Discord Analytics API
+  description: API exposing the data gathered by the analytics bot
+  language: Typescript - Nest
+  link: https://github.com/nukeop/discord-analytics
+  thumbnail: https://i.imgur.com/MEbZv97.png
 
 - name: react-ui-cards
   description: Card components for React
