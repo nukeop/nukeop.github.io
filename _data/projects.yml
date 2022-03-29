@@ -82,12 +82,6 @@
   link: https://github.com/nukeop/hide.py
   thumbnail: https://i.imgur.com/eFUlmka.png
 
-- name: tinycrawl-backend
-  description: Backend and RESTful API for a simple RPG game
-  language: Javascript (Node)
-  link: https://github.com/nukeop/tinycrawl-backend
-  thumbnail: https://i.imgur.com/X2XTXLc.png
-
 - name: nukeop.github.io
   description: this website
   language: HTML/CSS (Jekyll)
