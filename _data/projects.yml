@@ -2,7 +2,7 @@
   description: Electron-based streaming music player
   language: Typescript
   link: https://github.com/nukeop/nuclear
-  thumbnail: https://nuclear.js.org/assets/images/screenshot.png
+  thumbnail: https://nuclear.js.org/assets/images/mockup1.png
 
 - name: react-poll-widget
   description: Flexible poll widget for React
