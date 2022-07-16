@@ -4,6 +4,3 @@ description: A portfolio of my most interesting projects.
 
 exclude:
   - LICENSE
-
-plugins:
-  - jekyll-paginate
