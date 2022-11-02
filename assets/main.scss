@@ -1,14 +1,18 @@
 ---
 ---
 
-$balloonbg: #ffffe1;
-$blue: navy;
-$gray: #c0c0c0;
-$darkgray: #818181;
-$black: #212529;
+$yorhadark: #504c42;
+$yorhamid1: #585449;
+$yorhamid2: #b5af98;
+$yorhalight: #cec8ad;
+$yorhalighter: #dbd4b8;
+$yorhared: #dc5e45;
+$yorhablue: #00ac9f;
+
+$black: #000000;
 $white: #ffffff;
 
-@import "desktop";
-@import "layouts";
+@import "base";
+@import "elements";
+@import "pattern";
 @import "projects";
-@import "taskbar";

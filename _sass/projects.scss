@@ -1,60 +1,84 @@
-.projects {
-  display: flex;
-  flex-flow: column;
-  flex: 1 1 auto;
-  max-height: calc(100% - 114px);
-  z-index: 1;
-
-  .window-body {
-    flex: 1 1 auto;
-    overflow: auto;
-    margin: 0;
-  }
-}
-
 .project {
-  position: relative;
-  display: flex;
-  flex-flow: row;
-  text-decoration: none !important;
-  margin: 8px;
-  height: auto;
+    position: absolute;
+    left: calc(100% + 4rem);
+    display: none;
+    width: 100%;
+    top: 0;
+    background: $yorhalighter;
+    z-index: 1;
 
-  .thumbnail {
-    height: 10rem;
-    width: 10rem;
-    margin: 8px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
-
-  .text {
-    flex: 1 1 auto;
-    height: 100%;
-    color: $black;
-    margin-left: 8px;
-  }
-
-  .name {
-    font-weight: bold;
-  }
-
-  .language-container {
-    display: inline-block;
-  }
-
-  .language {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    color: $white;
-    background: $blue;
-    padding: 4px 6px;
-    margin-left: auto;
-
-    &>*:first-child {
-      margin-right: 8px;
+    .project-content {
+        padding: 1.5rem;
+        padding-top: 0;
     }
-  }
+
+    .project-footer {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4rem;
+    }
+
+    .tag {
+        color: $yorhalight;
+        background: $yorhamid1;
+        padding: 0.5em 1em;
+    }
+
+    a:hover span {
+        opacity: 0;
+        width: 0;
+
+        &:before {
+            min-width: 0;
+            width: 0;
+        }
+    }
+
+    a {
+        color: $yorhadark;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: $yorhalight;
+        }
+
+        span {
+            transition: all 0.2s ease-out;
+            color: rgba(0, 0, 0, 0);
+
+            &:before {
+                position: absolute;
+                content: " ";
+                bottom: 0.5em;
+                background: $yorhadark;
+                width: 1em;
+                height: 1em;
+            }
+        }
+    }
+
+    input:checked + & {
+        display: block;
+    }
+
+    .thumbnail {
+        width: 100%;
+        height: 250px;
+        max-height: 250px;
+        background-color: $yorhamid2;
+        padding: 1rem;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    hr {
+        border: none;
+        border-top: 0.1rem solid $yorhamid2;
+        margin: 1rem 0;
+    }
 }

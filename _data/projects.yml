@@ -1,8 +1,8 @@
-- name: nuclear
-  description: Electron-based streaming music player
+- name: Nuclear
+  description: Streaming music player. Finds music from free sources automatically. Wildly popular Spotify alternative.
   language: Typescript
   link: https://github.com/nukeop/nuclear
-  thumbnail: https://nuclear.js.org/assets/images/mockup1.png
+  thumbnail: ./assets/images/nuclear.jpg
 
 - name: react-poll-widget
   description: Flexible poll widget for React
@@ -10,24 +10,24 @@
   link: https://github.com/nukeop/react-poll-widget
   thumbnail: https://raw.githubusercontent.com/nukeop/react-poll-widget/master/docs/screenshots/3.png
 
-- name: zeus
-  description: custom virtual machine for a simple electronic game made from scratch
+- name: Zeus
+  description: Programmable virtual machine for a simple electronic game made from scratch. Control a screen, buttons, and sounds using a custom assembly language.
   language: Rust/Javascript
   link: https://github.com/nukeop/zeus
-  thumbnail: https://i.imgur.com/YalNITj.png
+  thumbnail: ./assets/images/zeus.jpg
 
 - name: Morpheus
   description: a Discord chatbot
   language: Typescript
   link: https://github.com/nukeop/morpheus
   thumbnail: https://i.imgur.com/8upCrg2.png
-  
+
 - name: Nuclear Web Services
   description: Optional backend services for Nuclear - self-hostable
   language: Typescript - Express
   link: https://github.com/NuclearPlayer/nuclear-web-services
-  thumbnail: https://i.imgur.com/Twdr4Ji.png
-  
+  thumbnail: ./assets/images/nuclear.jpg
+
 - name: Discord Analytics
   description: Discord bot for collecting stats and insights
   language: Typescript

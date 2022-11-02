@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: " en " }}">
 
-{% include head.html %}
+  {% include head.html %}
 
-<body>
-	<div class="desktop">
-		<img class="bonzi" src="https://i.imgur.com/k80QmAQ.gif" />
-		<div class="column icons">
-			{%
-			include icon.html
-			to="https://nukeop.github.io"
-			icon="https://win98icons.alexmeub.com/icons/png/computer-5.png"
-			title="nukeop.github.io"
-			%}
-			{%
-			include icon.html
-			to="https://github.com/nukeop"
-			icon="https://i.imgur.com/wo8SQ8Q.png"
-			title="Github"
-			%}
-		</div>
-		<div class="column desktop-windows">
-			{% include contact-window.html %}
-			{% include projects-window.html %}
-		</div>
-	</div>
-
-	<div class="balloon">
-		<span class="balloon-header">
-			<img src="https://win98icons.alexmeub.com/icons/png/msg_information-2.png" />
-			This site is best viewed in Internet Explorer 6.
-		</span>
-	</div>
-
-	{% include taskbar.html %}
-
-</body>
+  <body>
+    {% include pattern.html %}
+    <main>
+      <h1>Projects</h1>
+      <div class="row">
+        <div class="content">
+          <div class="list">
+            <div class="list-inner">
+              <hr/>
+              <div class="list-items">
+                {% for project in site.data.projects %}
+                  {% include project.html project=project %}
+                {% endfor %}
+              </div>
+              <hr/>
+            </div>
+          </div>
+        </div>
+        <div class="descriptions"></div>
+      </div>
+    </main>
+    {% include pattern.html %}
+  </body>
 
 </html>

@@ -1,19 +1,21 @@
-<a class="project well" href="{{ include.project.link }}">
-  <div class="thumbnail" style="background-image: url({{ include.project.thumbnail }})"></div>
-
-  <div class="text">
-    <span class="name">
-      {{ include.project.name }}
-    </span>
-    <p>
-      {{ include.project.description }}
-    </p>
-
-    <span class="language-container">
-      <span class="language">
-        <img src="https://win98icons.alexmeub.com/icons/png/script_file_yellow-0.png" />
+<label for="{{ include.project.name }}">
+  {{ include.project.name }}
+</label>
+<input type="radio" id="{{ include.project.name }}" name="project" />
+<div class="project">
+  <h3>{{ include.project.name }}</h3>
+  <div class="project-content">
+    <div class="thumbnail" style="background-image: url({{ include.project.thumbnail }})"></div>
+    <hr />
+    <p>{{ include.project.description }}</p>
+    <div class="project-footer">
+      <a href="{{ include.project.link }}" target="_blank">
+        <span>0 0</span>
+        Go to project
+      </a>
+      <div class="tag">
         {{ include.project.language }}
-      </span>
-    </span>
+      </div>
+    </div>
   </div>
-</a>
+</div>
