@@ -1,40 +1,23 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en " }}">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-{% include head.html %}
-
+    html, body {
+      height: 100%;
+      background: #000;
+    }
+  </style>
+</head>
 <body>
-	<div class="desktop">
-		<img class="bonzi" src="https://i.imgur.com/k80QmAQ.gif" />
-		<div class="column icons">
-			{%
-			include icon.html
-			to="https://nukeop.github.io"
-			icon="https://win98icons.alexmeub.com/icons/png/computer-5.png"
-			title="nukeop.github.io"
-			%}
-			{%
-			include icon.html
-			to="https://github.com/nukeop"
-			icon="https://i.imgur.com/wo8SQ8Q.png"
-			title="Github"
-			%}
-		</div>
-		<div class="column desktop-windows">
-			{% include contact-window.html %}
-			{% include projects-window.html %}
-		</div>
-	</div>
-
-	<div class="balloon">
-		<span class="balloon-header">
-			<img src="https://win98icons.alexmeub.com/icons/png/msg_information-2.png" />
-			This site is best viewed in Internet Explorer 6.
-		</span>
-	</div>
-
-	{% include taskbar.html %}
-
+  {{ content }}
 </body>
-
 </html>
