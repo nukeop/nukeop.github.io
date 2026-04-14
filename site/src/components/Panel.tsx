@@ -2,10 +2,14 @@ import type { FC } from "react";
 
 type PanelProps = {
 	children: React.ReactNode;
+	className?: string;
 };
-export const Panel: FC<PanelProps> = ({ children }) => {
+
+export const Panel: FC<PanelProps> = ({ children, className }) => {
 	return (
-		<div className="rounded-md bg-white p-2 shadow-xl border-b-stone-400 border-b-4">
+		<div
+			className={`squircle rounded-xl border-[0.5px] border-black/10 bg-linear-to-b from-stone-50 to-stone-200 shadow-plastic-panel p-4 ${className ?? ""}`}
+		>
 			{children}
 		</div>
 	);

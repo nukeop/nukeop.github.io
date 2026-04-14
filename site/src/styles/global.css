@@ -13,12 +13,17 @@
 	--shadow-plastic-active:
 		inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 var(--color-stone-300),
 		0 1px 4px rgba(0, 0, 0, 0.1);
+	--shadow-plastic-panel:
+		inset 0 1px 0 white,
+		inset 0 -1px 0 rgba(0, 0, 0, 0.05),
+		0 6px 0 var(--color-stone-300),
+		0 1px 3px rgba(0, 0, 0, 0.06),
+		0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 @utility squircle {
 	@supports (corner-shape: squircle) {
 		corner-shape: squircle;
-		border-radius: 10em;
 	}
 }
 

@@ -29,7 +29,7 @@ export const GrainyGradient: FC<GrainyGradientProps> = ({
 	} as CSSProperties;
 
 	return (
-		<div className={`grainy rounded-2xl ${className}`} style={style}>
+		<div className={`squircle grainy rounded-2xl ${className}`} style={style}>
 			{children}
 		</div>
 	);
