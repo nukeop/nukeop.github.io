@@ -1,4 +1,10 @@
-#version 300 es
+export const VERTEX_SHADER = `#version 300 es
+in vec4 aPosition;
+void main() {
+    gl_Position = aPosition;
+}`;
+
+const MATRIX_PREAMBLE = `#version 300 es
 precision highp float;
 
 // "Inside the Matrix" by And390
@@ -168,7 +174,7 @@ vec3 rain(vec3 ro3, vec3 rd3, float time) {
                             a *= clamp((chars_count - 0.5 - c) / 2., 0., 1.);
                             if (a > 0.) {
                                 float attenuation = 1. + pow(0.06 * tmin / t3_to_t2, 2.);
-                                vec3 col = (c == 0. ? vec3(0.67, 1.0, 0.82) : vec3(0.25, 0.80, 0.40)) / attenuation;
+                                vec3 col = (c == 0. ? vec3(0.82, 0.67, 0.85) : vec3(0.45, 0.25, 0.50)) / attenuation;
                                 float a1 = result.a;
                                 result.a = a1 + (1. - a1) * a;
                                 result.xyz = (result.xyz * a1 + col * (1. - a1) * a) / result.a;
@@ -213,11 +219,9 @@ vec3 rotateZ(vec3 v, float a) {
 
 float smoothstep1(float x) {
     return smoothstep(0., 1., x);
-}
+}`;
 
-void main() {
-    vec2 fragCoord = gl_FragCoord.xy;
-
+const MATRIX_CAMERA_BODY = `
     if (STRIP_CHAR_WIDTH > XYCELL_SIZE || STRIP_CHAR_HEIGHT * STRIP_CHARS_MAX > ZCELL_SIZE) {
         outColor = vec4(1., 0., 0., 1.);
         return;
@@ -354,7 +358,282 @@ void main() {
     ro += rd * 0.2;
     rd = normalize(rd);
 
-    vec3 col = rain(ro, rd, time);
+    vec3 col = rain(ro, rd, time);`;
+
+export const MATRIX_FRAGMENT_SHADER = `${MATRIX_PREAMBLE}
+
+void main() {
+    vec2 fragCoord = gl_FragCoord.xy;
+${MATRIX_CAMERA_BODY}
 
     outColor = vec4(col, 1.);
+}`;
+
+export const MATRIX_RAIN_SHADER = MATRIX_FRAGMENT_SHADER;
+
+export const VHS_DOWNSAMPLE_SHADER = `#version 300 es
+precision highp float;
+
+uniform sampler2D uInputTexture;
+uniform vec3 iResolution;
+
+out vec4 outColor;
+
+#define VIDEO_STANDARD_PAL
+
+#ifdef VIDEO_STANDARD_PAL
+    const vec2 maxResLuminance = vec2(335.0, 576.0);
+    const vec2 maxResChroma = vec2(40.0, 240.0);
+#endif
+
+const vec2 blurAmount = vec2(0.2, 0.2);
+
+mat3 rgb2yiq = mat3(
+    0.299, 0.596, 0.211,
+    0.587, -0.274, -0.523,
+    0.114, -0.322, 0.312
+);
+
+vec3 downsampleVideo(vec2 uv, vec2 pixelSize, ivec2 samples) {
+    vec2 uvStart = uv - pixelSize / 2.0;
+    vec2 uvEnd = uv + pixelSize;
+
+    vec3 result = vec3(0.0);
+    for (int i_u = 0; i_u < samples.x; i_u++) {
+        float u = mix(uvStart.x, uvEnd.x, float(i_u) / float(samples.x));
+        for (int i_v = 0; i_v < samples.y; i_v++) {
+            float v = mix(uvStart.y, uvEnd.y, float(i_v) / float(samples.y));
+            result += texture(uInputTexture, vec2(u, v)).rgb;
+        }
+    }
+
+    return (result / float(samples.x * samples.y)) * rgb2yiq;
 }
+
+vec3 downsampleVideo(vec2 fragCoord, vec2 downsampledRes) {
+    if (fragCoord.x > downsampledRes.x || fragCoord.y > downsampledRes.y) {
+        return vec3(0.0);
+    }
+
+    vec2 uv = fragCoord / downsampledRes;
+    vec2 pixelSize = 1.0 / downsampledRes;
+    ivec2 samples = ivec2(8, 3);
+    pixelSize *= 1.0 + blurAmount;
+
+    return downsampleVideo(uv, pixelSize, samples);
+}
+
+void main() {
+    vec2 fragCoord = gl_FragCoord.xy;
+    vec2 resLuminance = min(maxResLuminance, iResolution.xy);
+    vec2 resChroma = min(maxResChroma, iResolution.xy);
+
+    float luminance = downsampleVideo(fragCoord, resLuminance).r;
+    vec2 chroma = downsampleVideo(fragCoord, resChroma).gb;
+
+    outColor = vec4(luminance, chroma, 1.0);
+}`;
+
+export const VHS_RECONSTRUCT_SHADER = `#version 300 es
+precision highp float;
+
+uniform sampler2D uInputTexture;
+uniform vec3 iResolution;
+
+out vec4 outColor;
+
+#define VIDEO_STANDARD_PAL
+
+#ifdef VIDEO_STANDARD_PAL
+    const vec2 maxResLuminance = vec2(335.0, 576.0);
+    const vec2 maxResChroma = vec2(40.0, 240.0);
+#endif
+
+mat3 yiq2rgb = mat3(
+    1.0, 1.0, 1.0,
+    0.956, -0.272, -1.106,
+    0.621, -0.647, 1.703
+);
+
+vec4 cubic(float v) {
+    vec4 n = vec4(1.0, 2.0, 3.0, 4.0) - v;
+    vec4 s = n * n * n;
+    float x = s.x;
+    float y = s.y - 4.0 * s.x;
+    float z = s.z - 4.0 * s.y + 6.0 * s.x;
+    float w = 6.0 - x - y - z;
+    return vec4(x, y, z, w) * (1.0 / 6.0);
+}
+
+vec4 textureBicubic(sampler2D tex, vec2 uv) {
+    vec2 texSize = vec2(textureSize(tex, 0));
+    vec2 invTexSize = 1.0 / texSize;
+
+    uv = uv * texSize - 0.5;
+
+    vec2 fxy = fract(uv);
+    uv -= fxy;
+
+    vec4 xcubic = cubic(fxy.x);
+    vec4 ycubic = cubic(fxy.y);
+
+    vec4 c = uv.xxyy + vec2(-0.5, 1.5).xyxy;
+
+    vec4 s = vec4(xcubic.xz + xcubic.yw, ycubic.xz + ycubic.yw);
+    vec4 offset = c + vec4(xcubic.yw, ycubic.yw) / s;
+
+    offset *= invTexSize.xxyy;
+
+    vec4 sample0 = texture(tex, offset.xz);
+    vec4 sample1 = texture(tex, offset.yz);
+    vec4 sample2 = texture(tex, offset.xw);
+    vec4 sample3 = texture(tex, offset.yw);
+
+    float sx = s.x / (s.x + s.y);
+    float sy = s.z / (s.z + s.w);
+
+    return mix(mix(sample3, sample2, sx), mix(sample1, sample0, sx), sy);
+}
+
+void main() {
+    vec2 uv = gl_FragCoord.xy / iResolution.xy;
+
+    vec2 resLuminance = min(maxResLuminance, iResolution.xy);
+    vec2 resChroma = min(maxResChroma, iResolution.xy);
+
+    vec2 uvLuminance = uv * (resLuminance / iResolution.xy);
+    vec2 uvChroma = uv * (resChroma / iResolution.xy);
+
+    float luminance = textureBicubic(uInputTexture, uvLuminance).x;
+    vec2 chroma = textureBicubic(uInputTexture, uvChroma).yz;
+    vec3 col = vec3(luminance, chroma) * yiq2rgb;
+
+    float gray = dot(col, vec3(0.299, 0.587, 0.114));
+    col = mix(vec3(gray), col, 1.8);
+
+    outColor = vec4(col, 1.0);
+}`;
+
+export const CRT_LOTTES_SHADER = `#version 300 es
+precision highp float;
+
+// PUBLIC DOMAIN CRT STYLED SCAN-LINE SHADER
+// by Timothy Lottes
+
+uniform sampler2D uInputTexture;
+uniform vec3 iResolution;
+
+out vec4 outColor;
+
+#define res (iResolution.xy / 6.0)
+
+const float hardScan = -8.0;
+const float hardPix = -3.0;
+const vec2 warp = vec2(1.0 / 32.0, 1.0 / 24.0);
+const float maskDark = 0.5;
+const float maskLight = 1.5;
+
+float ToLinear1(float c) {
+    return (c <= 0.04045) ? c / 12.92 : pow((c + 0.055) / 1.055, 2.4);
+}
+vec3 ToLinear(vec3 c) {
+    return vec3(ToLinear1(c.r), ToLinear1(c.g), ToLinear1(c.b));
+}
+
+float ToSrgb1(float c) {
+    return (c < 0.0031308) ? c * 12.92 : 1.055 * pow(c, 0.41666) - 0.055;
+}
+vec3 ToSrgb(vec3 c) {
+    return vec3(ToSrgb1(c.r), ToSrgb1(c.g), ToSrgb1(c.b));
+}
+
+vec3 Fetch(vec2 pos, vec2 off) {
+    pos = floor(pos * res + off) / res;
+    if (max(abs(pos.x - 0.5), abs(pos.y - 0.5)) > 0.5) return vec3(0.0);
+    return ToLinear(texture(uInputTexture, pos.xy).rgb);
+}
+
+vec2 Dist(vec2 pos) {
+    pos = pos * res;
+    return -((pos - floor(pos)) - vec2(0.5));
+}
+
+float Gaus(float pos, float scale) {
+    return exp2(scale * pos * pos);
+}
+
+vec3 Horz3(vec2 pos, float off) {
+    vec3 b = Fetch(pos, vec2(-1.0, off));
+    vec3 c = Fetch(pos, vec2(0.0, off));
+    vec3 d = Fetch(pos, vec2(1.0, off));
+    float dst = Dist(pos).x;
+    float scale = hardPix;
+    float wb = Gaus(dst - 1.0, scale);
+    float wc = Gaus(dst + 0.0, scale);
+    float wd = Gaus(dst + 1.0, scale);
+    return (b * wb + c * wc + d * wd) / (wb + wc + wd);
+}
+
+vec3 Horz5(vec2 pos, float off) {
+    vec3 a = Fetch(pos, vec2(-2.0, off));
+    vec3 b = Fetch(pos, vec2(-1.0, off));
+    vec3 c = Fetch(pos, vec2(0.0, off));
+    vec3 d = Fetch(pos, vec2(1.0, off));
+    vec3 e = Fetch(pos, vec2(2.0, off));
+    float dst = Dist(pos).x;
+    float scale = hardPix;
+    float wa = Gaus(dst - 2.0, scale);
+    float wb = Gaus(dst - 1.0, scale);
+    float wc = Gaus(dst + 0.0, scale);
+    float wd = Gaus(dst + 1.0, scale);
+    float we = Gaus(dst + 2.0, scale);
+    return (a * wa + b * wb + c * wc + d * wd + e * we) / (wa + wb + wc + wd + we);
+}
+
+float Scan(vec2 pos, float off) {
+    float dst = Dist(pos).y;
+    return Gaus(dst + off, hardScan);
+}
+
+vec3 Tri(vec2 pos) {
+    vec3 a = Horz3(pos, -1.0);
+    vec3 b = Horz5(pos, 0.0);
+    vec3 c = Horz3(pos, 1.0);
+    float wa = Scan(pos, -1.0);
+    float wb = Scan(pos, 0.0);
+    float wc = Scan(pos, 1.0);
+    return a * wa + b * wb + c * wc;
+}
+
+vec2 Warp(vec2 pos) {
+    pos = pos * 2.0 - 1.0;
+    pos *= vec2(1.0 + (pos.y * pos.y) * warp.x, 1.0 + (pos.x * pos.x) * warp.y);
+    return pos * 0.5 + 0.5;
+}
+
+vec3 Mask(vec2 pos) {
+    pos.x += pos.y * 3.0;
+    vec3 mask = vec3(maskDark);
+    pos.x = fract(pos.x / 6.0);
+    if (pos.x < 0.333) mask.r = maskLight;
+    else if (pos.x < 0.666) mask.g = maskLight;
+    else mask.b = maskLight;
+    return mask;
+}
+
+void main() {
+    vec2 uv = gl_FragCoord.xy / iResolution.xy;
+
+    vec2 crtUv = uv * 2.0 - 1.0;
+    float barrelStrength = 0.06;
+    float r2 = dot(crtUv, crtUv);
+    crtUv *= 1.0 + barrelStrength * r2;
+    if (abs(crtUv.x) > 1.0 || abs(crtUv.y) > 1.0) {
+        outColor = vec4(0.0, 0.0, 0.0, 1.0);
+        return;
+    }
+    vec2 pos = crtUv * 0.5 + 0.5;
+
+    vec3 col = Tri(pos) * Mask(gl_FragCoord.xy);
+    outColor = vec4(ToSrgb(col), 1.0);
+}`;
