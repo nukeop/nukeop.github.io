@@ -1,12 +1,15 @@
 ---
-
+import "../styles/global.css";
+import { App } from "../components/App";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>nukeop.github.io</title>
+		<title>nukeop</title>
 	</head>
-	<body> </body>
+	<body class="bg-sky-200">
+		<App client:load />
+	</body>
 </html>
